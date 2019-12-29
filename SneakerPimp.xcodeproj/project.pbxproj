@@ -18,6 +18,7 @@
 		5556EF3623B87BDD006F2DD8 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF3523B87BDD006F2DD8 /* APIManager.swift */; };
 		5556EF3823B87BE8006F2DD8 /* APIManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF3723B87BE8006F2DD8 /* APIManagerTests.swift */; };
 		5556EF3A23B87BEF006F2DD8 /* ShoeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF3923B87BEF006F2DD8 /* ShoeTests.swift */; };
+		5556EF3D23B92CE8006F2DD8 /* sampleHTML.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5556EF3C23B92CE8006F2DD8 /* sampleHTML.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		5556EF3523B87BDD006F2DD8 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		5556EF3723B87BE8006F2DD8 /* APIManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagerTests.swift; sourceTree = "<group>"; };
 		5556EF3923B87BEF006F2DD8 /* ShoeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoeTests.swift; sourceTree = "<group>"; };
+		5556EF3C23B92CE8006F2DD8 /* sampleHTML.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = sampleHTML.txt; path = SneakerPimp/sampleHTML.txt; sourceTree = SOURCE_ROOT; };
 		93B9E0289EEE2F6F1CC4F07A /* Pods-SneakerPimp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SneakerPimp.release.xcconfig"; path = "Target Support Files/Pods-SneakerPimp/Pods-SneakerPimp.release.xcconfig"; sourceTree = "<group>"; };
 		BE7468A62D4772A9ED7A3F40 /* Pods-SneakerPimpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SneakerPimpTests.release.xcconfig"; path = "Target Support Files/Pods-SneakerPimpTests/Pods-SneakerPimpTests.release.xcconfig"; sourceTree = "<group>"; };
 		C7CB93372B52E31D2640F937 /* Pods_SneakerPimpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SneakerPimpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +106,7 @@
 		5556EF1223B877BD006F2DD8 /* SneakerPimp */ = {
 			isa = PBXGroup;
 			children = (
+				5556EF3B23B92CBC006F2DD8 /* Resources */,
 				5556EF1323B877BD006F2DD8 /* AppDelegate.swift */,
 				5556EF3523B87BDD006F2DD8 /* APIManager.swift */,
 				5556EF1523B877BD006F2DD8 /* SceneDelegate.swift */,
@@ -124,6 +127,14 @@
 				5556EF2C23B877BE006F2DD8 /* Info.plist */,
 			);
 			path = SneakerPimpTests;
+			sourceTree = "<group>";
+		};
+		5556EF3B23B92CBC006F2DD8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5556EF3C23B92CE8006F2DD8 /* sampleHTML.txt */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		FCF7C2634BFC2FDDCAFD368E /* Pods */ = {
@@ -224,6 +235,7 @@
 				5556EF2023B877BE006F2DD8 /* LaunchScreen.storyboard in Resources */,
 				5556EF1D23B877BE006F2DD8 /* Assets.xcassets in Resources */,
 				5556EF1B23B877BD006F2DD8 /* Main.storyboard in Resources */,
+				5556EF3D23B92CE8006F2DD8 /* sampleHTML.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

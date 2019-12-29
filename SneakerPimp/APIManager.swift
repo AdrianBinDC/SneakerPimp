@@ -6,9 +6,8 @@
 //  Copyright © 2019 Adrian Bolinger. All rights reserved.
 //
 
-import UIKit
-import Alamofire
 import SwiftSoup
+import WebKit
 
 struct Price {
     let price: Double
@@ -34,7 +33,7 @@ struct Shoe: Hashable {
         hasher.combine(color)
         hasher.combine(style)
     }
-        
+    
     let name: String
     let releaseDate: Date
     let images: [UIImage]?
@@ -57,7 +56,25 @@ enum KicksOnFireURL: String {
 }
 
 class APIManager {
-        
+    
+    func scrape(url: String) {        
+        let webView = WKWebView()
+        let url = URL(string: url)
+        webView.load(URLRequest(url: url!))
+        let randomNumber = Double.random(in: 3...10)
+        DispatchQueue.main.asyncAfter(deadline: .now() + randomNumber) {
+            webView.evaluateJavaScript("document.documentElement.innerHTML") { (html, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                }
+                
+                if let html = html {
+                    print(html)
+                }
+            }
+        }
+    }
+    
     func urlFor(pageNumber: Int) -> String? {
         var components = URLComponents(string: KicksOnFireURL.releaseCalendar.rawValue)
         
@@ -74,13 +91,13 @@ class APIManager {
     func urlFor(shoe: Shoe) {
         // TODO: implement
         // not final, work in progress
-
+        
     }
     
     // TODO: get html for page
     // TODO: parse html
     // TODO: save url
-
-
-
+    
+    
+    
 }

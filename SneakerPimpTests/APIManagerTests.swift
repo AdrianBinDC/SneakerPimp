@@ -10,18 +10,18 @@ import XCTest
 @testable import SneakerPimp
 
 class APIManagerTests: XCTestCase {
-
-    /*
-     https://www.kicksonfire.com/app/upcoming
-     https://www.kicksonfire.com/app/upcoming?page=2
-     */
-    
     func testUrlForPageNumber() {
         let basePage = "https://www.kicksonfire.com/app/upcoming"
         let pageTwo = "https://www.kicksonfire.com/app/upcoming?page=2"
-        
         let apiManager = APIManager()
         XCTAssertEqual(basePage, apiManager.urlFor(pageNumber: 0))
         XCTAssertEqual(pageTwo, apiManager.urlFor(pageNumber: 1))
+    }
+    
+    func testScrape() {
+        let exp = expectation(description: "scrape")
+        let apiManager = APIManager()
+        apiManager.scrape(url: KicksOnFireURL.releaseCalendar.rawValue)
+        waitForExpectations(timeout: 10.0, handler: nil)
     }
 }

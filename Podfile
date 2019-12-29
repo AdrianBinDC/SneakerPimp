@@ -6,7 +6,6 @@ target 'SneakerPimp' do
   use_frameworks!
 
   # Pods for SneakerPimp
-  pod 'Alamofire', '5.0.0-rc.3' # networking framework
   pod 'SwiftSoup'               # html parser
   pod 'FSCalendar'              # calendar framework
   pod 'Kingfisher'              # async framework to download images
