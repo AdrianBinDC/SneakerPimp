@@ -1,0 +1,30 @@
+PODS:
+  - Alamofire (5.0.0-rc.3)
+  - FSCalendar (2.8.1)
+  - Kingfisher (5.12.0):
+    - Kingfisher/Core (= 5.12.0)
+  - Kingfisher/Core (5.12.0)
+  - SwiftSoup (2.3.0)
+
+DEPENDENCIES:
+  - Alamofire (= 5.0.0-rc.3)
+  - FSCalendar
+  - Kingfisher
+  - SwiftSoup
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - FSCalendar
+    - Kingfisher
+    - SwiftSoup
+
+SPEC CHECKSUMS:
+  Alamofire: ca8c0de6906873be89d6deec5c8de279e00bf872
+  FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
+  Kingfisher: dc6e0f53bb5b12c3e75bedb0e01bbd7a640eea69
+  SwiftSoup: d78683f7ea0ae5733225a9e1d3bee5b256449df4
+
+PODFILE CHECKSUM: 8ed4003ec9194250e872a9ec6132351b9a9bf25a
+
+COCOAPODS: 1.7.5
