@@ -14,11 +14,11 @@ class ShoeTests: XCTestCase {
     func testShoes() {
         let auntPearl = "https://www.kicksonfire.com/app/nike-kd-12-aunt-pearl"
         
-        let auntPearlStruct = Shoe(name: "Nike KD 12 Aunt Pearl", releaseDate: Date(), images: nil, wants: [], color: nil, style: "", retailPrices: [], currentPrices: [])
+        let auntPearlStruct = Shoe(name: "Nike KD 12 Aunt Pearl", releaseDate: Date(), url: "https://www.kicksonfire.com/app/nike-kd-12-aunt-pearl", images: nil, wants: [], color: nil, style: "", retailPrices: [], currentPrices: [])
         XCTAssertEqual(auntPearl, auntPearlStruct.url)
         
         let undefeated = "https://www.kicksonfire.com/app/undefeated-x-nike-air-max-90-black-solar-red"
-        let undefeatedStruct = Shoe(name: "Undefeated x Nike Air Max 90 Black Solar Red", releaseDate: Date(), images: nil, wants: [], color: nil, style: "", retailPrices: [], currentPrices: [])
+        let undefeatedStruct = Shoe(name: "Undefeated x Nike Air Max 90 Black Solar Red", releaseDate: Date(), url: "https://www.kicksonfire.com/app/undefeated-x-nike-air-max-90-black-solar-red", images: nil, wants: [], color: nil, style: "", retailPrices: [], currentPrices: [])
         XCTAssertEqual(undefeated, undefeatedStruct.url)
     }
 }

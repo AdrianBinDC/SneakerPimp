@@ -21,6 +21,22 @@ class APIManagerTests: XCTestCase {
     func testScrape() {
         let exp = expectation(description: "scrape")
         let apiManager = APIManager()
+        
+        apiManager.shoesSubject
+            .sink(receiveCompletion: { [weak self] value in
+                guard self != nil else { return }
+                switch value {
+                case .finished:
+                    print("apiManager.shoesSubject .finished")
+                    break
+                }
+            }) { [weak self] shoes in
+                guard self != nil else { return }
+                XCTAssertNotNil(shoes)
+                print(shoes)
+                exp.fulfill()
+        }
+        
         apiManager.scrape(url: KicksOnFireURL.releaseCalendar.rawValue)
         waitForExpectations(timeout: 10.0, handler: nil)
     }
