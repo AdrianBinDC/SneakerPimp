@@ -6,7 +6,7 @@
 //  Copyright © 2020 Adrian Bolinger. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 struct Price: Codable {
     let price: Double
@@ -22,26 +22,33 @@ struct Shoe: Codable, Hashable {
     static func == (lhs: Shoe, rhs: Shoe) -> Bool {
         return lhs.name == rhs.name
             && lhs.releaseDate == rhs.releaseDate
-            && lhs.url == rhs.url
             && lhs.color == rhs.color
-            && lhs.style == rhs.style
+            && lhs.styleCode == rhs.styleCode
     }
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(name)
         hasher.combine(releaseDate)
-        hasher.combine(url)
         hasher.combine(color)
-        hasher.combine(style)
+        hasher.combine(styleCode)
     }
     
     let name: String
     let releaseDate: Date
-    let url: String
     let images: [String]?
     let wants: [Want]?
     let color: String?
-    let style: String?
+    let styleCode: String?
     let retailPrices: [Price]?
     let currentPrices: [Price]?
+}
+
+extension Shoe {
+    var url: String {
+        return KicksOnFireURL.baseUrl.rawValue + name.replacingOccurrences(of: " ", with: "-")
+    }
+    
+    var hasL2Data: Bool {
+        return wants != nil
+    }
 }
