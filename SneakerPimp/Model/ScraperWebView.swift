@@ -14,7 +14,10 @@ import Combine
 ///
 /// This class generates a random user agent whenever it is initialized.
 class ScraperWebView: WKWebView, ObservableObject {
-    let rawHTMLSubject = PassthroughSubject<String, Never>()
+    /// `rawHTMLSubject` is published each time a page is completely loaded
+    ///
+    /// The page's loaded state is determined by `WKNavigationDelegate`'s `didFinish` method
+    public let rawHTMLSubject = PassthroughSubject<String, Never>()
     
     override init(frame: CGRect, configuration: WKWebViewConfiguration) {
         super.init(frame: frame, configuration: configuration)
@@ -30,7 +33,7 @@ class ScraperWebView: WKWebView, ObservableObject {
         navigationDelegate = self
         customUserAgent = randomUserAgent
     }
-        
+            
     private lazy var randomUserAgent: String = {
         let userAgents: [String] = [
             // Android
@@ -97,9 +100,10 @@ class ScraperWebView: WKWebView, ObservableObject {
 }
 
 extension ScraperWebView: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         webView.evaluateJavaScript("document.documentElement.outerHTML") { (html, error) in
             if let error = error {
+                // TODO: incorporate error handling
                 print("** didFinish error **", error)
             }
             
