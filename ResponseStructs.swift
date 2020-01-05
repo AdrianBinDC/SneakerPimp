@@ -35,11 +35,11 @@ struct Shoe: Codable, Hashable {
     
     let name: String
     let releaseDate: Date
-    let images: [String]?
-    let wants: [Want]?
-    let color: String?
-    let styleCode: String?
-    let retailPrices: [Price]?
+    var images: [String]? // done
+    var wants: [Want]?
+    var color: String?
+    var styleCode: String?
+    var retailPrices: [Price]?
     let currentPrices: [Price]?
 }
 

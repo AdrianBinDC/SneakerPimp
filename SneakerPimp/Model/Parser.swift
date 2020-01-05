@@ -18,7 +18,7 @@ enum ParserKeys {
     enum L2: String {
         case shoeDiv = "main"
         case releaseDate = "release date"
-        case images = "li.lslide"
+        case images = "img.gallery-img"
         case productDetails = "div.product-details"
         case attributeKey = "att-title"
         case attributeValue = "att-value"
@@ -60,4 +60,64 @@ class Parser {
         
         return shoes
     }
+    
+    func parseL2Page(shoe: Shoe, html: String) -> Shoe {
+        var shoe = shoe
+        do {
+            let doc = try SwiftSoup.parse(html)
+            let images = try doc.select(ParserKeys.L2.images.rawValue)
+                .map { imageElement in
+                    try imageElement.attr("src").lowercased()
+            }
+            shoe.images = images
+            
+            let productDetails = try doc.select("div.product-details")
+            
+            let columnOne = try productDetails.select("div.col-md-6").first()
+            let columnOneElements = try columnOne?.select("p")
+            let wantString = try columnOneElements?.array()[1].text()
+            let color = try columnOneElements?.array()[3].text()
+            
+            let columnTwo = try productDetails.select("div.col-md-6").last()
+            let columnTwoElements = try columnTwo?.select("p")
+            let styleCode = try columnTwoElements?.array()[1].text()
+            let price = try columnTwoElements?.select("span").text()
+            
+            if let color = color {
+                shoe.color = color
+            }
+            
+            if let wantInt = wantString?.intValue {
+                let want = Want(want: wantInt,
+                                date: Date())
+                if shoe.wants == nil {
+                    shoe.wants = [want]
+                } else {
+                    shoe.wants?.append(want)
+                }
+            }
+            
+            if let styleCode = styleCode {
+                shoe.styleCode = styleCode
+            }
+            
+            if let price = price?.dropFirst(), let priceDouble = Double(price) {
+                let priceStruct = Price(price: priceDouble, date: Date())
+                
+                if var retailPrices = shoe.retailPrices {
+                    retailPrices.append(priceStruct)
+                } else {
+                    shoe.retailPrices = [priceStruct]
+                }
+                
+                shoe.retailPrices?.append(priceStruct)
+            }
+
+        } catch {
+            print(error)
+        }
+        
+        return shoe
+    }
+
 }

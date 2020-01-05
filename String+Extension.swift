@@ -19,4 +19,8 @@ extension String {
         
         return formatter.date(from: self) ?? Date()        
     }
+    
+    var intValue: Int? {
+        return Int(self)
+    }
 }
