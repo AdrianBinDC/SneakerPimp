@@ -20,13 +20,14 @@
 		5556EF3A23B87BEF006F2DD8 /* ShoeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF3923B87BEF006F2DD8 /* ShoeTests.swift */; };
 		5556EF4223B92F56006F2DD8 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF4123B92F56006F2DD8 /* Parser.swift */; };
 		5556EF4423B93078006F2DD8 /* ParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF4323B93078006F2DD8 /* ParserTests.swift */; };
-		5556EF4623B938E5006F2DD8 /* sampleHTML.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5556EF3C23B92CE8006F2DD8 /* sampleHTML.txt */; };
+		5556EF4623B938E5006F2DD8 /* L1.html in Resources */ = {isa = PBXBuildFile; fileRef = 5556EF3C23B92CE8006F2DD8 /* L1.html */; };
 		5556EF4923B94321006F2DD8 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF4823B94321006F2DD8 /* String+Extension.swift */; };
 		5556EF4B23B944B3006F2DD8 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF4A23B944B3006F2DD8 /* StringExtensionTests.swift */; };
 		5556EF4D23BA0731006F2DD8 /* ScraperWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF4C23BA0731006F2DD8 /* ScraperWebView.swift */; };
 		5556EF4F23BA104F006F2DD8 /* ScraperWebViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF4E23BA104F006F2DD8 /* ScraperWebViewTests.swift */; };
 		5556EF5123BD6A30006F2DD8 /* ResponseStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF5023BD6A30006F2DD8 /* ResponseStructs.swift */; };
 		5556EF5323C02584006F2DD8 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF5223C02584006F2DD8 /* Storage.swift */; };
+		556353D523C18196009AAF1F /* L2.html in Resources */ = {isa = PBXBuildFile; fileRef = 556353D323C10E9A009AAF1F /* L2.html */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +57,7 @@
 		5556EF3523B87BDD006F2DD8 /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		5556EF3723B87BE8006F2DD8 /* APIManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManagerTests.swift; sourceTree = "<group>"; };
 		5556EF3923B87BEF006F2DD8 /* ShoeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShoeTests.swift; sourceTree = "<group>"; };
-		5556EF3C23B92CE8006F2DD8 /* sampleHTML.txt */ = {isa = PBXFileReference; lastKnownFileType = text; name = sampleHTML.txt; path = SneakerPimp/sampleHTML.txt; sourceTree = SOURCE_ROOT; };
+		5556EF3C23B92CE8006F2DD8 /* L1.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = L1.html; path = SneakerPimp/L1.html; sourceTree = SOURCE_ROOT; };
 		5556EF4123B92F56006F2DD8 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		5556EF4323B93078006F2DD8 /* ParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserTests.swift; sourceTree = "<group>"; };
 		5556EF4823B94321006F2DD8 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = SOURCE_ROOT; };
@@ -65,6 +66,7 @@
 		5556EF4E23BA104F006F2DD8 /* ScraperWebViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScraperWebViewTests.swift; sourceTree = "<group>"; };
 		5556EF5023BD6A30006F2DD8 /* ResponseStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseStructs.swift; sourceTree = SOURCE_ROOT; };
 		5556EF5223C02584006F2DD8 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = SneakerPimp/Storage.swift; sourceTree = SOURCE_ROOT; };
+		556353D323C10E9A009AAF1F /* L2.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = L2.html; sourceTree = SOURCE_ROOT; };
 		93B9E0289EEE2F6F1CC4F07A /* Pods-SneakerPimp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SneakerPimp.release.xcconfig"; path = "Target Support Files/Pods-SneakerPimp/Pods-SneakerPimp.release.xcconfig"; sourceTree = "<group>"; };
 		BE7468A62D4772A9ED7A3F40 /* Pods-SneakerPimpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SneakerPimpTests.release.xcconfig"; path = "Target Support Files/Pods-SneakerPimpTests/Pods-SneakerPimpTests.release.xcconfig"; sourceTree = "<group>"; };
 		C7CB93372B52E31D2640F937 /* Pods_SneakerPimpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SneakerPimpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,7 +152,8 @@
 		5556EF3B23B92CBC006F2DD8 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5556EF3C23B92CE8006F2DD8 /* sampleHTML.txt */,
+				5556EF3C23B92CE8006F2DD8 /* L1.html */,
+				556353D323C10E9A009AAF1F /* L2.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -283,7 +286,8 @@
 				5556EF2023B877BE006F2DD8 /* LaunchScreen.storyboard in Resources */,
 				5556EF1D23B877BE006F2DD8 /* Assets.xcassets in Resources */,
 				5556EF1B23B877BD006F2DD8 /* Main.storyboard in Resources */,
-				5556EF4623B938E5006F2DD8 /* sampleHTML.txt in Resources */,
+				556353D523C18196009AAF1F /* L2.html in Resources */,
+				5556EF4623B938E5006F2DD8 /* L1.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

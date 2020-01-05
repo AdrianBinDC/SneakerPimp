@@ -22,7 +22,7 @@ class ParserTests: XCTestCase {
                 print(error.localizedDescription)
             }
         }
-
+        
         return ""
     }()
     
@@ -37,15 +37,22 @@ class ParserTests: XCTestCase {
                 print(error.localizedDescription)
             }
         }
-
+        
         return ""
     }()
-
+    
     
     func testL1Sample() {
         let parser = Parser()
         let shoes = parser.parseL1Page(html: l1Sample)
         XCTAssertEqual(shoes.count, 12)
+    }
+    
+    func testL1ParseSpeed() {
+        measure {
+            let parser = Parser()
+            let shoes = parser.parseL1Page(html: l1Sample)
+        }
     }
     
     func testL2Sample() {
@@ -59,6 +66,28 @@ class ParserTests: XCTestCase {
                             retailPrices: nil,
                             currentPrices: nil)
         let shoe = parser.parseL2Page(shoe: testShoe, html: l2Sample)
+        XCTAssertEqual(shoe.images?.count, 5)
+        XCTAssertEqual(shoe.name, "Air Jordan 3 GS Barely Grape")
+        XCTAssertEqual(shoe.wants?[0].want, 713)
+        XCTAssertEqual(shoe.color, "Barely Grape/Hyper Crimson-Fire Pink")
+        XCTAssertEqual(shoe.styleCode, "441140-500")
+        XCTAssertEqual(shoe.retailPrices?[0].price, 140.0)
     }
-
+    
+    func testL2ParseSpeed() {
+        measure {
+            let parser = Parser()
+            let testShoe = Shoe(name: "Air Jordan 3 GS Barely Grape",
+                                releaseDate: Date(),
+                                images: nil,
+                                wants: nil,
+                                color: nil,
+                                styleCode: nil,
+                                retailPrices: nil,
+                                currentPrices: nil)
+            let shoe = parser.parseL2Page(shoe: testShoe, html: l2Sample)
+            
+        }
+    }
+    
 }
