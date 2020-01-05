@@ -6,6 +6,7 @@
 //  Copyright © 2019 Adrian Bolinger. All rights reserved.
 //
 
+import Combine
 import XCTest
 @testable import SneakerPimp
 
@@ -20,22 +21,16 @@ class APIManagerTests: XCTestCase {
     
     func testScrape() {
         let exp = expectation(description: "scrape")
-        let apiManager = APIManager()
+        var subscription = Set<AnyCancellable>()
         
-        apiManager.shoesSubject
-            .sink(receiveCompletion: { [weak self] value in
-                guard self != nil else { return }
-                switch value {
-                case .finished:
-                    print("apiManager.shoesSubject .finished")
-                    break
-                }
-            }) { [weak self] shoes in
-                guard self != nil else { return }
+        let apiManager = APIManager()
+        let publisher = apiManager.shoePublisher
+                
+        _ = publisher.sink { shoes in
                 XCTAssertNotNil(shoes)
                 print(shoes)
                 exp.fulfill()
-        }
+        }.store(in: &subscription)
         
         apiManager.scrape(page: .L1(pageNumber: 0))
         waitForExpectations(timeout: 10.0, handler: nil)

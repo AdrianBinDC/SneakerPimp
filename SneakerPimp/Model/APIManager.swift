@@ -10,7 +10,6 @@ import Foundation
 import SwiftSoup
 import WebKit
 import Combine
-import Disk
 
 enum KicksOnFireURL: String {
     case baseUrl = "https://www.kicksonfire.com/app/"
@@ -25,20 +24,24 @@ class APIManager: ObservableObject {
     }
     
     var shoesSubject = PassthroughSubject<[Shoe], Never>()
-    private var webView: ScraperWebView!
+    /*
+     The webview grabs HTML and publishes it. When the subscriber receives it, the data is parsed.
+     */
+    private var l1WebView: ScraperWebView!
+    private var l1Subscription = Set<AnyCancellable>()
+    private var l1Publisher: PassthroughSubject<String, Never>!
     
-    private var subscription = Set<AnyCancellable>()
-    private var publisher: PassthroughSubject<String, Never>!
+    public var shoePublisher = PassthroughSubject<[Shoe], Never>()
     
     init() {
-        self.webView = ScraperWebView()
-        self.publisher = webView.rawHTMLSubject
+        self.l1WebView = ScraperWebView()
+        self.l1Publisher = l1WebView.rawHTMLSubject
         
-        publisher.sink { string in
+        l1Publisher.sink { string in
             let parser = Parser()
             let parsedShoes = parser.parseL1Page(html: string)
-            self.save(shoes: parsedShoes)
-        }.store(in: &subscription)
+            self.shoePublisher.send(parsedShoes)
+        }.store(in: &l1Subscription)
     }
     
     func scrape(page: Page) {
@@ -51,7 +54,7 @@ class APIManager: ObservableObject {
             url = URL(string: shoeURL)!
         }
         
-        webView.load(URLRequest(url: url))
+        l1WebView.load(URLRequest(url: url))
     }
     
     func urlFor(pageNumber: Int) -> String? {
@@ -67,15 +70,15 @@ class APIManager: ObservableObject {
         return components?.string
     }
     
-    func save(shoes: [Shoe]) {
-        // FIXME: data does not persist
-        shoes.forEach { shoe in
-            print(Storage.fileExists(String(shoe.hashValue), in: .documents))
-            if !Storage.fileExists(String(shoe.hashValue), in: .documents) {
-                Storage.store(shoe, to: .documents, as: String(shoe.hashValue))
-            }
-        }
-    }
+//    func save(shoes: [Shoe]) {
+//        // FIXME: data does not persist
+//        shoes.forEach { shoe in
+//            print(Storage.fileExists(String(shoe.hashValue), in: .documents))
+//            if !Storage.fileExists(String(shoe.hashValue), in: .documents) {
+//                Storage.store(shoe, to: .documents, as: String(shoe.hashValue))
+//            }
+//        }
+//    }
         
     // TODO: save url
 }
