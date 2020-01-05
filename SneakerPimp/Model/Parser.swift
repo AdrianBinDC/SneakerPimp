@@ -54,7 +54,6 @@ class Parser {
                     shoes.append(shoe)
                 }
             }
-            print(doc)
         } catch {
             print(error)
         }

@@ -10,6 +10,7 @@ import Foundation
 import SwiftSoup
 import WebKit
 import Combine
+import Disk
 
 enum KicksOnFireURL: String {
     case baseUrl = "https://www.kicksonfire.com/app/"
@@ -17,6 +18,12 @@ enum KicksOnFireURL: String {
 }
 
 class APIManager: ObservableObject {
+    
+    enum Page {
+        case L1(pageNumber: Int?)
+        case L2(shoeURL: String)
+    }
+    
     var shoesSubject = PassthroughSubject<[Shoe], Never>()
     private var webView: ScraperWebView!
     
@@ -29,17 +36,21 @@ class APIManager: ObservableObject {
         
         publisher.sink { string in
             let parser = Parser()
-            let parsedShoes = parser.parse(html: string)
-            print("parsedShoes.count =", parsedShoes.count)
-            self.shoesSubject.send(parsedShoes)
-            self.shoesSubject.send(completion: .finished)
+            let parsedShoes = parser.parseL1Page(html: string)
+            self.save(shoes: parsedShoes)
         }.store(in: &subscription)
     }
     
-    func scrape(url: String) {
-        guard let url = URL(string: url) else {
-            return
+    func scrape(page: Page) {
+        var url: URL
+        switch page {
+        case .L1(let pageNumber):
+            guard let urlString = urlFor(pageNumber: pageNumber ?? 0) else { return }
+            url = URL(string: urlString)!
+        case .L2(let shoeURL):
+            url = URL(string: shoeURL)!
         }
+        
         webView.load(URLRequest(url: url))
     }
     
@@ -56,11 +67,15 @@ class APIManager: ObservableObject {
         return components?.string
     }
     
-    func urlFor(shoe: Shoe) {
-        // TODO: implement
-        // not final, work in progress
-        
+    func save(shoes: [Shoe]) {
+        // FIXME: data does not persist
+        shoes.forEach { shoe in
+            print(Storage.fileExists(String(shoe.hashValue), in: .documents))
+            if !Storage.fileExists(String(shoe.hashValue), in: .documents) {
+                Storage.store(shoe, to: .documents, as: String(shoe.hashValue))
+            }
+        }
     }
-    
+        
     // TODO: save url
 }

@@ -37,7 +37,7 @@ class APIManagerTests: XCTestCase {
                 exp.fulfill()
         }
         
-        apiManager.scrape(url: KicksOnFireURL.releaseCalendar.rawValue)
+        apiManager.scrape(page: .L1(pageNumber: 0))
         waitForExpectations(timeout: 10.0, handler: nil)
     }
 }
