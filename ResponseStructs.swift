@@ -45,7 +45,7 @@ struct Shoe: Codable, Hashable {
 
 extension Shoe {
     var url: String {
-        return KicksOnFireURL.baseUrl.rawValue + name.replacingOccurrences(of: " ", with: "-")
+        return KicksOnFireURL.baseUrl.rawValue + name.lowercased().replacingOccurrences(of: " ", with: "-")
     }
     
     var hasL2Data: Bool {
