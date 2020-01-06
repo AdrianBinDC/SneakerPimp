@@ -44,11 +44,22 @@ struct Shoe: Codable, Hashable {
 }
 
 extension Shoe {
-    var url: String {
-        return KicksOnFireURL.baseUrl.rawValue + name.lowercased().replacingOccurrences(of: " ", with: "-")
+    public var url: String {
+        return KicksOnFireURL.baseUrl.rawValue + hyphenatedName
     }
     
-    var hasL2Data: Bool {
+    public var hasL2Data: Bool {
         return wants != nil
+    }
+    
+    private var hyphenatedName: String {
+        return name.lowercased().replacingOccurrences(of: " ", with: "-")
+    }
+    
+    public var filename: String {
+        let components = Calendar.current.dateComponents([.year, .month, .day], from: releaseDate)
+        let dateString = String(format: "%d-%d-%d-", components.year!, components.month!, components.day!)
+        
+        return dateString + hyphenatedName
     }
 }
