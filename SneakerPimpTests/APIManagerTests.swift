@@ -25,11 +25,10 @@ class APIManagerTests: XCTestCase {
         
         let apiManager = APIManager()
         let publisher = apiManager.shoePublisher
-                
+        
         _ = publisher.sink { shoes in
-                XCTAssertNotNil(shoes)
-                print(shoes)
-                exp.fulfill()
+            XCTAssertEqual(shoes.count, 12)
+            exp.fulfill()
         }.store(in: &subscription)
         
         apiManager.scrape(page: .L1(pageNumber: 0))
