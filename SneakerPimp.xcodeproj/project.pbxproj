@@ -28,6 +28,7 @@
 		5556EF5123BD6A30006F2DD8 /* ResponseStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF5023BD6A30006F2DD8 /* ResponseStructs.swift */; };
 		5556EF5323C02584006F2DD8 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5556EF5223C02584006F2DD8 /* Storage.swift */; };
 		556353D523C18196009AAF1F /* L2.html in Resources */ = {isa = PBXBuildFile; fileRef = 556353D323C10E9A009AAF1F /* L2.html */; };
+		556353D723C315FD009AAF1F /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 556353D623C315FD009AAF1F /* StorageTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		5556EF5023BD6A30006F2DD8 /* ResponseStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseStructs.swift; sourceTree = SOURCE_ROOT; };
 		5556EF5223C02584006F2DD8 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = SneakerPimp/Storage.swift; sourceTree = SOURCE_ROOT; };
 		556353D323C10E9A009AAF1F /* L2.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = L2.html; sourceTree = SOURCE_ROOT; };
+		556353D623C315FD009AAF1F /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
 		93B9E0289EEE2F6F1CC4F07A /* Pods-SneakerPimp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SneakerPimp.release.xcconfig"; path = "Target Support Files/Pods-SneakerPimp/Pods-SneakerPimp.release.xcconfig"; sourceTree = "<group>"; };
 		BE7468A62D4772A9ED7A3F40 /* Pods-SneakerPimpTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SneakerPimpTests.release.xcconfig"; path = "Target Support Files/Pods-SneakerPimpTests/Pods-SneakerPimpTests.release.xcconfig"; sourceTree = "<group>"; };
 		C7CB93372B52E31D2640F937 /* Pods_SneakerPimpTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SneakerPimpTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +145,7 @@
 				5556EF4323B93078006F2DD8 /* ParserTests.swift */,
 				5556EF4E23BA104F006F2DD8 /* ScraperWebViewTests.swift */,
 				5556EF3923B87BEF006F2DD8 /* ShoeTests.swift */,
+				556353D623C315FD009AAF1F /* StorageTests.swift */,
 				5556EF4A23B944B3006F2DD8 /* StringExtensionTests.swift */,
 				5556EF2C23B877BE006F2DD8 /* Info.plist */,
 			);
@@ -388,6 +391,7 @@
 				5556EF4B23B944B3006F2DD8 /* StringExtensionTests.swift in Sources */,
 				5556EF4F23BA104F006F2DD8 /* ScraperWebViewTests.swift in Sources */,
 				5556EF3A23B87BEF006F2DD8 /* ShoeTests.swift in Sources */,
+				556353D723C315FD009AAF1F /* StorageTests.swift in Sources */,
 				5556EF3823B87BE8006F2DD8 /* APIManagerTests.swift in Sources */,
 				5556EF4423B93078006F2DD8 /* ParserTests.swift in Sources */,
 			);
